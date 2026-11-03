@@ -16,6 +16,7 @@ $pips = [
     6 => [1, 3, 4, 6, 7, 9],
 ];
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
