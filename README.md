@@ -79,9 +79,9 @@ Versión actual: **0.1.0** (en desarrollo).
 
 ## Equipo
 
-- [Nombre y apellidos del miembro 1]
-- [Nombre y apellidos del miembro 2]
-- [Nombre y apellidos del miembro 3]
+- [Adrián Rojas Rodriguez]
+- [Daniel López Núñez]
+- [Kevin Mejías Pérez]
 
 ## Contexto académico
 
