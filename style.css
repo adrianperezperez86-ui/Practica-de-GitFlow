@@ -21,6 +21,8 @@ body {
 }
 
 .mesa {
+    position: relative;
+    z-index: 1;                          /* por encima de los dados de fondo */
     width: min(92vw, 420px);
     padding: 2rem 1.5rem;
     text-align: center;
@@ -131,6 +133,25 @@ h1 {
     cursor: pointer;
 }
 
+/* ---------- Dados de fondo ---------- */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22240%22 height=%22240%22 viewBox=%220 0 240 240%22%3E%3Cg transform=%22translate%2850 50%29 rotate%28-15%29%22%3E%3Crect x=%22-28%22 y=%22-28%22 width=%2256%22 height=%2256%22 rx=%2210%22 fill=%22%23f4eedd%22 stroke=%22%23d9d0b8%22 stroke-width=%222%22/%3E%3Cg fill=%22%23143f33%22%3E%3Ccircle cx=%22-14%22 cy=%22-14%22 r=%225%22/%3E%3Ccircle cx=%2214%22 cy=%22-14%22 r=%225%22/%3E%3Ccircle cx=%220%22 cy=%220%22 r=%225%22/%3E%3Ccircle cx=%22-14%22 cy=%2214%22 r=%225%22/%3E%3Ccircle cx=%2214%22 cy=%2214%22 r=%225%22/%3E%3C/g%3E%3C/g%3E%3Cg transform=%22translate%28180 70%29 rotate%2820%29%22%3E%3Crect x=%22-28%22 y=%22-28%22 width=%2256%22 height=%2256%22 rx=%2210%22 fill=%22%23f4eedd%22 stroke=%22%23d9d0b8%22 stroke-width=%222%22/%3E%3Cg fill=%22%23143f33%22%3E%3Ccircle cx=%22-14%22 cy=%22-14%22 r=%225%22/%3E%3Ccircle cx=%2214%22 cy=%2214%22 r=%225%22/%3E%3C/g%3E%3C/g%3E%3Cg transform=%22translate%2870 180%29 rotate%2812%29%22%3E%3Crect x=%22-28%22 y=%22-28%22 width=%2256%22 height=%2256%22 rx=%2210%22 fill=%22%23f4eedd%22 stroke=%22%23d9d0b8%22 stroke-width=%222%22/%3E%3Cg fill=%22%23143f33%22%3E%3Ccircle cx=%22-14%22 cy=%22-14%22 r=%225%22/%3E%3Ccircle cx=%220%22 cy=%220%22 r=%225%22/%3E%3Ccircle cx=%2214%22 cy=%2214%22 r=%225%22/%3E%3C/g%3E%3C/g%3E%3Cg transform=%22translate%28185 185%29 rotate%28-25%29%22%3E%3Crect x=%22-28%22 y=%22-28%22 width=%2256%22 height=%2256%22 rx=%2210%22 fill=%22%23f4eedd%22 stroke=%22%23d9d0b8%22 stroke-width=%222%22/%3E%3Cg fill=%22%23143f33%22%3E%3Ccircle cx=%22-14%22 cy=%22-14%22 r=%225%22/%3E%3Ccircle cx=%22-14%22 cy=%220%22 r=%225%22/%3E%3Ccircle cx=%22-14%22 cy=%2214%22 r=%225%22/%3E%3Ccircle cx=%2214%22 cy=%22-14%22 r=%225%22/%3E%3Ccircle cx=%2214%22 cy=%220%22 r=%225%22/%3E%3Ccircle cx=%2214%22 cy=%2214%22 r=%225%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-size: 240px 240px;       /* tamaño de cada baldosa del patrón */
+    opacity: .14;                       /* tenue, para no competir con el dado */
+    pointer-events: none;
+    animation: deriva 60s linear infinite;
+}
+
+/* Desplaza el patrón justo una baldosa: el bucle no se nota */
+@keyframes deriva {
+    to { background-position: 240px 240px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .dado { transition-duration: .01s; }
+    body::before { animation: none; }
 }
